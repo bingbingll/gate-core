@@ -26,7 +26,7 @@ import java.io.OutputStream;
 
 import javax.xml.stream.XMLStreamException;
 
-@CreoleResource(name = "GATE XML Exporter", tool = true, autoinstances = @AutoInstance, icon = "GATEXML")
+@CreoleResource(name = "GATE XML 导出器", tool = true, autoinstances = @AutoInstance, icon = "GATEXML")
 public class GateXMLExporter extends DocumentExporter {
 
   private static final long serialVersionUID = -5725505758491779035L;

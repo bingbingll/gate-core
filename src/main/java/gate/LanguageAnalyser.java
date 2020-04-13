@@ -39,7 +39,7 @@ public interface LanguageAnalyser extends ProcessingResource {
   /** Set the corpus property for this analyser. */
   @Optional
   @RunTime
-  @CreoleParameter(comment = "The corpus containing the document to process")
+  @CreoleParameter(comment = "包含要处理的文档的语料库")
   public void setCorpus(Corpus corpus);
 
   /** Get the corpus property for this analyser. */

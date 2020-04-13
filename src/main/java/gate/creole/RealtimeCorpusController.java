@@ -45,9 +45,8 @@ import org.slf4j.LoggerFactory;
  * that may occur during execution and simply carries on with the next document
  * when that happens.
  */
-@CreoleResource(name = "Real-Time Corpus Pipeline",
-    comment = "A serial controller for PR pipelines over corpora which "
-        + "limits the run time of each PR.",
+@CreoleResource(name = "实时语料库管道",
+    comment = "用于语料库上PR管道的串行控制器，它限制了每个PR的运行时间。",
     icon = "application-realtime",
     helpURL = "http://gate.ac.uk/userguide/sec:creole-model:applications")
 public class RealtimeCorpusController extends SerialAnalyserController {

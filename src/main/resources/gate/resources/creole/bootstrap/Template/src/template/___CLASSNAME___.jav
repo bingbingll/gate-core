@@ -28,7 +28,7 @@ import ___packages___.*;
  * This class is the implementation of the resource TEMPLATE.
  */
 @CreoleResource(name = "Template",
-        comment = "Add a descriptive comment about this resource")
+        comment = "添加关于此资源的描述性评论")
 public class ___CLASSNAME___ ___INTERFACES___ {
 
 ___CONTENT___

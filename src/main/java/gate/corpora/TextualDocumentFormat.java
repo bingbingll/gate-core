@@ -35,7 +35,7 @@ import gate.util.DocumentFormatException;
   * getDocumentFormat methods can then be used to get the appropriate
   * format class for a particular document.
   */
-@CreoleResource(name = "GATE Textual Document Format", isPrivate = true,
+@CreoleResource(name = "GATE Textual 文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class TextualDocumentFormat extends DocumentFormat
 {

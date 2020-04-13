@@ -40,8 +40,8 @@ import gate.util.Err;
  * strategies and they only work with {@link LanguageAnalyser}s so the PRs that
  * are not analysers will get a default &quot;run always&quot; strategy.
  */
-@CreoleResource(name = "Conditional Pipeline",
-    comment = "A simple serial controller for conditionally run PRs.",
+@CreoleResource(name = "条件管道",
+    comment = "一个简单的串行控制器，用于有条件地运行PR。",
     helpURL = "http://gate.ac.uk/userguide/sec:developer:cond")
 public class ConditionalSerialController extends SerialController
                                          implements ConditionalController{

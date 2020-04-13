@@ -58,7 +58,7 @@ import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreePath;
 
 @SuppressWarnings("serial")
-@CreoleResource(name = "Serial Datastore Viewer", guiType = GuiType.LARGE,
+@CreoleResource(name = "串行数据存储查看器", guiType = GuiType.LARGE,
     resourceDisplayed = "gate.persist.SerialDataStore", mainViewer = true)
 public class SerialDatastoreViewer extends JScrollPane implements
                                                       VisualResource,

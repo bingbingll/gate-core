@@ -92,7 +92,7 @@ import javax.swing.text.JTextComponent;
  * button.
  */
 @SuppressWarnings("serial")
-@CreoleResource(name = "Document Editor", guiType = GuiType.LARGE, resourceDisplayed = "gate.Document", mainViewer = true)
+@CreoleResource(name = "文档编辑", guiType = GuiType.LARGE, resourceDisplayed = "gate.Document", mainViewer = true)
 public class DocumentEditor extends AbstractVisualResource implements
                                                           ActionsPublisher {
   /**

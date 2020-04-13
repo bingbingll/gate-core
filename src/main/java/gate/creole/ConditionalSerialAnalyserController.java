@@ -58,9 +58,8 @@ import java.util.List;
  * have been processed or an abnormal termination occurred.
  * 
  */
-@CreoleResource(name = "Conditional Corpus Pipeline",
-    comment = "A serial controller for conditionally run PR pipelines "
-        + "over corpora.",
+@CreoleResource(name = "条件语料库管道",
+    comment = "一个用于在语料库上有条件地运行PR管道的串行控制器。",
     helpURL = "http://gate.ac.uk/userguide/sec:developer:cond")
 public class ConditionalSerialAnalyserController
        extends ConditionalSerialController

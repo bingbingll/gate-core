@@ -28,7 +28,7 @@ import gate.event.StatusListener;
 import gate.util.DocumentFormatException;
 import gate.xml.XmlDocumentHandler;
 
-@CreoleResource(name = "Apache Tika Document Format", isPrivate = true, autoinstances = {@AutoInstance(hidden = true)})
+@CreoleResource(name = "Apache Tika 文件格式", isPrivate = true, autoinstances = {@AutoInstance(hidden = true)})
 public class TikaFormat extends DocumentFormat {
 
   private static final long serialVersionUID = 1L;

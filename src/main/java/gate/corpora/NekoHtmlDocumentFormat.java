@@ -53,7 +53,7 @@ import org.cyberneko.html.HTMLConfiguration;
  * in this way is configurable via a CREOLE parameter.
  * </p>
  */
-@CreoleResource(name = "GATE HTML Document Format", isPrivate = true,
+@CreoleResource(name = "GATE HTML 文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class NekoHtmlDocumentFormat extends TextualDocumentFormat {
  

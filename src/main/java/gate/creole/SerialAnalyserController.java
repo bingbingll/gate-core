@@ -54,8 +54,8 @@ import java.util.List;
  * have been processed or an abnormal termination occurred.
  * 
  */
-@CreoleResource(name = "Corpus Pipeline",
-    comment = "A serial controller for PR pipelines over corpora.",
+@CreoleResource(name = "语料库管道",
+    comment = "用于语料库上的PR管道的串行控制器。",
     helpURL = "http://gate.ac.uk/userguide/sec:developer:apps")
 public class SerialAnalyserController extends SerialController 
        implements CorpusController, LanguageAnalyser, ControllerAwarePR {

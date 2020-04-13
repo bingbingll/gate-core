@@ -41,7 +41,7 @@ import gate.xml.XmlDocumentHandler;
   * getDocumentFormat methods can then be used to get the appropriate
   * format class for a particular document.
   */
-@CreoleResource(name = "GATE SGML Document Format", isPrivate = true,
+@CreoleResource(name = "GATE SGML文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class SgmlDocumentFormat extends TextualDocumentFormat
 {

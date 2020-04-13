@@ -40,7 +40,7 @@ import java.util.Set;
 /**
  * UIMA XCAS and XMICAS document formats.
  */
-@CreoleResource(name = "UIMA Document Format", isPrivate = true,
+@CreoleResource(name = "UIMA 文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class UimaDocumentFormat extends XmlDocumentFormat {
 

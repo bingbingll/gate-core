@@ -160,9 +160,8 @@ import gate.util.Strings;
  * store display settings in gate config.
  */
 @SuppressWarnings("serial")
-@CreoleResource(name = "Lucene Datastore Searcher", guiType = GuiType.LARGE, resourceDisplayed = "gate.creole.annic.SearchableDataStore", comment = "GUI allowing to write a query with a JAPE derived syntax for querying\n"
-        + " a Lucene Datastore and display the results with a stacked view of the\n"
-        + " annotations and their values.", helpURL = "http://gate.ac.uk/userguide/chap:annic")
+@CreoleResource(name = "Lucene数据存储搜索器", guiType = GuiType.LARGE, resourceDisplayed = "gate.creole.annic.SearchableDataStore", comment = "GUI allowing to write a query with a JAPE derived syntax for querying\n"
+        + "Lucene数据存储区，并以注释及其值的堆叠视图显示结果。", helpURL = "http://gate.ac.uk/userguide/chap:annic")
 public class LuceneDataStoreSearchGUI extends AbstractVisualResource implements
                                                                     DatastoreListener {
 

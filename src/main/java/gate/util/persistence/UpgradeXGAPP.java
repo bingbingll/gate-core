@@ -79,7 +79,7 @@ import gate.swing.XJFileChooser;
 import gate.util.ExtensionFileFilter;
 import gate.util.maven.SimpleModelResolver;
 
-@CreoleResource(tool = true, isPrivate = true, autoinstances = @AutoInstance, name = "Upgrade XGapp", comment = "Upgrades an XGapp to use new style GATE plugins")
+@CreoleResource(tool = true, isPrivate = true, autoinstances = @AutoInstance, name = "升级 XGapp", comment = "升级XGapp以使用新型GATE插件")
 public class UpgradeXGAPP {
 
   private static final Logger log = LoggerFactory.getLogger(UpgradeXGAPP.class);

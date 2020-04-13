@@ -30,8 +30,8 @@ import gate.util.profile.Profiler;
 /**
  * Execute a list of PRs serially.
  */
-@CreoleResource(name = "Pipeline",
-    comment = "A simple serial controller for PR pipelines.",
+@CreoleResource(name = "管道",
+    comment = "用于PR管道的简单串行控制器。",
     helpURL = "http://gate.ac.uk/userguide/sec:developer:apps")
 public class SerialController extends AbstractController implements
                                                         CreoleListener,

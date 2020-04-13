@@ -37,7 +37,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
 
-@CreoleResource(name = "Relation Viewer", guiType = GuiType.LARGE, resourceDisplayed = "gate.Document")
+@CreoleResource(name = "关系查看", guiType = GuiType.LARGE, resourceDisplayed = "gate.Document")
 public class RelationSetView extends AbstractVisualResource
                                                            implements
                                                            DocumentListener,

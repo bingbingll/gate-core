@@ -62,7 +62,7 @@ import javax.swing.table.TableCellRenderer;
 /**
  */
 @SuppressWarnings({"serial","rawtypes","unchecked"})
-@CreoleResource(name = "Resource Features", guiType = GuiType.SMALL,
+@CreoleResource(name = "资源特征", guiType = GuiType.SMALL,
     resourceDisplayed = "gate.util.FeatureBearer")
 public class FeaturesSchemaEditor extends XJTable
         implements ResizableVisualResource, FeatureMapListener{

@@ -49,7 +49,7 @@ import gate.util.GateRuntimeException;
  * It will also allow addition and removal of documents.
  */
 @SuppressWarnings("serial")
-@CreoleResource(name = "Corpus editor", guiType = GuiType.LARGE,
+@CreoleResource(name = "语料库编辑", guiType = GuiType.LARGE,
     resourceDisplayed = "gate.Corpus", mainViewer = true)
 public class CorpusEditor extends AbstractVisualResource
   implements CorpusListener {

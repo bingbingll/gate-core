@@ -114,7 +114,7 @@ import gate.util.GateRuntimeException;
 import gate.util.NameComparator;
 
 @SuppressWarnings("serial")
-@CreoleResource(name = "Serial Application Editor", guiType = GuiType.LARGE,
+@CreoleResource(name = "串行应用程序编辑器", guiType = GuiType.LARGE,
     resourceDisplayed = "gate.creole.SerialController", mainViewer = true)
 public class SerialControllerEditor extends AbstractVisualResource
                                implements CreoleListener, ControllerListener,

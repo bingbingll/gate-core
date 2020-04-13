@@ -38,7 +38,7 @@ import gate.swing.XJTable;
 import gate.util.GateRuntimeException;
 
 @SuppressWarnings("serial")
-@CreoleResource(name = "Initialisation Parameters", guiType = GuiType.LARGE,
+@CreoleResource(name = "初始化参数", guiType = GuiType.LARGE,
     resourceDisplayed = "gate.Resource", mainViewer = true)
 public class PRViewer extends AbstractVisualResource {
 

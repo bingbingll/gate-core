@@ -31,7 +31,7 @@ import gate.util.InvalidOffsetException;
   * position NN I-NP
   * ...
   */
-@CreoleResource(name = "GATE CoNLL Document Format", isPrivate = true,
+@CreoleResource(name = "GATE CoNLL文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class ConllDocumentFormat extends TextualDocumentFormat {
   

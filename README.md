@@ -1,3 +1,7 @@
+# 做了一些汉化
+1、执行 `mvn package` 
+2、将生成的jar包拷贝到你的GATE_Developer安装目录的lib文件夹中。
+3、将现有的gate-core-8.6.1.jar重命名为gate-core-8.6.1.jar.back，修改生成的gate-core-9.0.jar 
 # GATE Developer (including GATE Embedded)
 
 [![Javadocs](https://javadoc.io/badge/uk.ac.gate/gate-core.svg?color=brightgreen&label=JavaDoc)](https://javadoc.io/doc/uk.ac.gate/gate-core)

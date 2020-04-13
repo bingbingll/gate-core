@@ -210,7 +210,7 @@ import gate.util.reporting.exceptions.BenchmarkReportException;
 /**
  * The main Gate GUI frame.
  */
-@SuppressWarnings("serial")
+@SuppressWarnings("all")
 public class MainFrame extends JFrame implements ProgressListener,
                                      StatusListener, CreoleListener, PluginListener {
 
@@ -566,14 +566,14 @@ public class MainFrame extends JFrame implements ProgressListener,
 
   protected void initLocalData() {
     resourcesTreeRoot = new DefaultMutableTreeNode("GATE", true);
-    applicationsRoot = new DefaultMutableTreeNode("Applications", true);
+    applicationsRoot = new DefaultMutableTreeNode("应用领域", true);
 
     languageResourcesRoot =
-        new DefaultMutableTreeNode("Language Resources", true);
+        new DefaultMutableTreeNode("语言资源", true);
 
     processingResourcesRoot =
-        new DefaultMutableTreeNode("Processing Resources", true);
-    datastoresRoot = new DefaultMutableTreeNode("Datastores", true);
+        new DefaultMutableTreeNode("处理资源", true);
+    datastoresRoot = new DefaultMutableTreeNode("资料储存库", true);
     resourcesTreeRoot.add(applicationsRoot);
     resourcesTreeRoot.add(languageResourcesRoot);
     resourcesTreeRoot.add(processingResourcesRoot);
@@ -841,26 +841,26 @@ public class MainFrame extends JFrame implements ProgressListener,
     // MENUS
     menuBar = new JMenuBar();
 
-    JMenu fileMenu = new XJMenu("File", null, this);
+    JMenu fileMenu = new XJMenu("文件", null, this);
     fileMenu.setMnemonic(KeyEvent.VK_F);
 
     LiveMenu newAPPMenu = new LiveMenu(LiveMenu.APP);
-    newAPPMenu.setText("New Application");
+    newAPPMenu.setText("新的应用");
     newAPPMenu.setIcon(getIcon("applications"));
     fileMenu.add(newAPPMenu);
 
     LiveMenu newLRMenu = new LiveMenu(LiveMenu.LR);
-    newLRMenu.setText("New Language Resource");
+    newLRMenu.setText("新语言资源");
     newLRMenu.setIcon(getIcon("lrs"));
     fileMenu.add(newLRMenu);
 
     LiveMenu newPRMenu = new LiveMenu(LiveMenu.PR);
-    newPRMenu.setText("New Processing Resource");
+    newPRMenu.setText("新处理资源");
     newPRMenu.setIcon(getIcon("prs"));
     fileMenu.add(newPRMenu);
 
-    final JMenu dsMenu = new XJMenu("Datastores",
-      "Repositories for large data", this);
+    final JMenu dsMenu = new XJMenu("资料储存库",
+      "大数据存储库", this);
     dsMenu.setIcon(getIcon("datastores"));
     dsMenu.add(new XJMenuItem(new NewDSAction(), this));
     dsMenu.add(new XJMenuItem(new OpenDSAction(), this));
@@ -901,17 +901,17 @@ public class MainFrame extends JFrame implements ProgressListener,
 
     menuBar.add(fileMenu);
 
-    JMenu optionsMenu = new XJMenu("Options", null, this);
+    JMenu optionsMenu = new XJMenu("选项", null, this);
     optionsMenu.setMnemonic(KeyEvent.VK_O);
 
     boolean optionsMenuHasEntries = false;
 
     optionsDialog = new OptionsDialog(MainFrame.this);
     if(!Gate.runningOnMac()) {
-      optionsMenu.add(new XJMenuItem(new AbstractAction("Configuration") {
+      optionsMenu.add(new XJMenuItem(new AbstractAction("配置") {
         private static final long serialVersionUID = 1L;
         {
-          putValue(SHORT_DESCRIPTION, "Edit GATE options");
+          putValue(SHORT_DESCRIPTION, "编辑GATE选项");
         }
 
         @Override
@@ -927,7 +927,7 @@ public class MainFrame extends JFrame implements ProgressListener,
       menuBar.add(optionsMenu);
     }
 
-    ToolsMenu toolsMenu = new ToolsMenu("Tools", null, this);
+    ToolsMenu toolsMenu = new ToolsMenu("工具箱", null, this);
     toolsMenu.setMnemonic(KeyEvent.VK_T);
     toolsMenu.add(new XJMenuItem(new NewAnnotDiffAction(), this));
 
@@ -942,9 +942,9 @@ public class MainFrame extends JFrame implements ProgressListener,
   
     
       final JMenuItem reportClearMenuItem = new XJMenuItem(
-        new AbstractAction("Clear Profiling History") {
+        new AbstractAction("清除分析历史记录") {
         { putValue(SHORT_DESCRIPTION,
-          "Clear profiling history otherwise the report is cumulative."); }
+          "清除分析历史记录，否则该报告是累积性的。"); }
         @Override
         public void actionPerformed(ActionEvent evt) {
           // create a new log file
@@ -957,13 +957,13 @@ public class MainFrame extends JFrame implements ProgressListener,
           }
         }
       }, this);
-      JMenu reportMenu = new XJMenu("Profiling Reports",
-        "Generates profiling reports from processing resources", this);
+      JMenu reportMenu = new XJMenu("分析报告",
+        "从处理资源生成性能分析报告", this);
       reportMenu.setIcon(getIcon("gazetteer"));
       reportMenu.add(new XJMenuItem(
-        new AbstractAction("Start Profiling Applications") {
+        new AbstractAction("开始分析应用程序") {
         { putValue(SHORT_DESCRIPTION,
-          "Toggles the profiling of processing resources"); }
+          "切换处理资源的配置文件"); }
   
         // stores the value held by the benchmarking switch before we started
         // this profiling run.
@@ -971,7 +971,7 @@ public class MainFrame extends JFrame implements ProgressListener,
   
         @Override
         public void actionPerformed(ActionEvent evt) {
-          if (getValue(NAME).equals("Start Profiling Applications")) {
+          if (getValue(NAME).equals("开始分析应用程序")) { //Start Profiling Applications
             reportClearMenuItem.setEnabled(false);
             // store old value of benchmark switch
             benchmarkWasEnabled = Benchmark.isBenchmarkingEnabled();
@@ -990,7 +990,7 @@ public class MainFrame extends JFrame implements ProgressListener,
             }
             appender.setName("gate-benchmark");
             Benchmark.logger.addAppender(appender);*/
-            putValue(NAME, "Stop Profiling Applications");
+            putValue(NAME, "停止分析应用程序");
           } else {
             // reset old value of benchmark switch - i.e. if benchmarking was
             // disabled before the user selected "start profiling" then we
@@ -999,23 +999,23 @@ public class MainFrame extends JFrame implements ProgressListener,
             // leave it alone.
             Benchmark.setBenchmarkingEnabled(benchmarkWasEnabled);
             //Benchmark.logger.removeAppender("gate-benchmark");
-            putValue(NAME, "Start Profiling Applications");
+            putValue(NAME, "开始分析应用程序");
             reportClearMenuItem.setEnabled(true);
           }
         }
       }, this));
       reportMenu.add(reportClearMenuItem);
-      reportMenu.add(new XJMenuItem(new AbstractAction("Help on this tool") {
+      reportMenu.add(new XJMenuItem(new AbstractAction("有关此工具的帮助") {
         @Override
         public void actionPerformed(ActionEvent e) {
-          showHelpFrame("chap:profiling", "Profiling Processing Resources");
+          showHelpFrame("chap:profiling", "分析处理资源");
         }
       }, this));
       reportMenu.addSeparator();
   
       final JCheckBoxMenuItem reportZeroTimesCheckBox = new JCheckBoxMenuItem();
       reportZeroTimesCheckBox.setAction(
-        new AbstractAction("Report Zero Time Entries") {
+        new AbstractAction("报告零时间条目") {
         @Override
         public void actionPerformed(ActionEvent evt) {
           Gate.getUserConfig().put(MainFrame.class.getName()+".reportzerotime",
@@ -1026,7 +1026,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           MainFrame.class.getName()+".reportzerotimes"));
       ButtonGroup group = new ButtonGroup();
       final JRadioButtonMenuItem reportSortExecution = new JRadioButtonMenuItem();
-      reportSortExecution.setAction(new AbstractAction("Sort by Execution") {
+      reportSortExecution.setAction(new AbstractAction("按执行排序") {
         @Override
         public void actionPerformed(ActionEvent evt) {
           Gate.getUserConfig().put(
@@ -1037,7 +1037,7 @@ public class MainFrame extends JFrame implements ProgressListener,
         MainFrame.class.getName()+".reportsorttime"));
       group.add(reportSortExecution);
       final JRadioButtonMenuItem reportSortTime = new JRadioButtonMenuItem();
-      reportSortTime.setAction(new AbstractAction("Sort by Time") {
+      reportSortTime.setAction(new AbstractAction("按时间排序") {
         @Override
         public void actionPerformed(ActionEvent evt) {
           Gate.getUserConfig().put(
@@ -1048,9 +1048,9 @@ public class MainFrame extends JFrame implements ProgressListener,
         MainFrame.class.getName()+".reportsorttime"));
       group.add(reportSortTime);
       reportMenu.add(new XJMenuItem(
-        new AbstractAction("Report on Processing Resources") {
+        new AbstractAction("加工资源报告") {
         { putValue(SHORT_DESCRIPTION,
-          "Report time taken by each processing resource"); }
+          "报告每个处理资源花费的时间"); }
         @Override
         public void actionPerformed(ActionEvent evt) {
           PRTimeReporter report = new PRTimeReporter();
@@ -1066,7 +1066,7 @@ public class MainFrame extends JFrame implements ProgressListener,
             return;
           }
           showHelpFrame("file://" + report.getReportFile(),
-            "processing times report");
+            "处理时间报告");//processing times report
         }
       }, this));
       reportMenu.add(reportZeroTimesCheckBox);
@@ -1075,8 +1075,9 @@ public class MainFrame extends JFrame implements ProgressListener,
       reportMenu.addSeparator();
   
       reportMenu.add(new XJMenuItem(
-        new AbstractAction("Report on Documents Processed") {
-          { putValue(SHORT_DESCRIPTION, "Report most time consuming documents"); }
+        new AbstractAction("已处理文件报告") {//Report on Documents Processed
+          { putValue(SHORT_DESCRIPTION, "报告最耗时的文档"); //Report most time consuming documents
+          }
           @Override
           public void actionPerformed(ActionEvent evt) {
             DocTimeReporter report = new DocTimeReporter();
@@ -1147,8 +1148,9 @@ public class MainFrame extends JFrame implements ProgressListener,
     }
 
     toolsMenu.add(new XJMenuItem(new NewBootStrapAction(), this));
-    final JMenu corpusEvalMenu = new XJMenu("Corpus Benchmark",
-      "Compares processed and human-annotated annotations", this);
+    final JMenu corpusEvalMenu = new XJMenu("语料库基准",//Corpus Benchmark
+      "比较处理后的注释和人工注释", //Compares processed and human-annotated annotations
+            this);
     corpusEvalMenu.setIcon(getIcon("corpus-benchmark"));
     toolsMenu.add(corpusEvalMenu);
     corpusEvalMenu.add(new XJMenuItem(new NewCorpusEvalAction(), this));
@@ -1169,11 +1171,11 @@ public class MainFrame extends JFrame implements ProgressListener,
     toolsMenu.staticItemsAdded();    
     menuBar.add(toolsMenu);
     
-    JMenu helpMenu = new XJMenu("Help", null, MainFrame.this);
+    JMenu helpMenu = new XJMenu("帮助", null, MainFrame.this);
     helpMenu.setMnemonic(KeyEvent.VK_H);
     helpMenu.add(new XJMenuItem(new HelpUserGuideAction(), this));
     helpMenu.add(new XJMenuItem(new HelpUserGuideInContextAction(), this));
-    helpMenu.add(new XJMenuItem(new AbstractAction("Keyboard Shortcuts") {
+    helpMenu.add(new XJMenuItem(new AbstractAction("键盘快捷键") {
       @Override
       public void actionPerformed(ActionEvent e) {
         showHelpFrame("sec:developer:keyboard", "shortcuts");
@@ -1227,14 +1229,14 @@ public class MainFrame extends JFrame implements ProgressListener,
     // popups
     lrsPopup = new XJPopupMenu();
     LiveMenu lrsMenu = new LiveMenu(LiveMenu.LR);
-    lrsMenu.setText("New");
+    lrsMenu.setText("新建");//New
     lrsPopup.add(lrsMenu);
     guiRoots.add(lrsPopup);
     guiRoots.add(lrsMenu);
 
     prsPopup = new XJPopupMenu();
     LiveMenu prsMenu = new LiveMenu(LiveMenu.PR);
-    prsMenu.setText("New");
+    prsMenu.setText("新建");//New
     prsPopup.add(prsMenu);
     guiRoots.add(prsPopup);
     guiRoots.add(prsMenu);
@@ -1258,25 +1260,25 @@ public class MainFrame extends JFrame implements ProgressListener,
               "uk.ac.gate.plugins","annie","/resources/"
                       + ANNIEConstants.DEFAULT_FILE));
     annieMenu.setText("");
-    annieMenu.setToolTipText("Load ANNIE");
+    annieMenu.setToolTipText("加载 ANNIE");
     toolbar.add(annieMenu);
     toolbar.addSeparator();
     
     LiveMenu tbNewLRMenu = new LiveMenu(LiveMenu.LR);
     JMenuButton menuButton = new JMenuButton(tbNewLRMenu);
-    menuButton.setToolTipText("New Language Resource");
+    menuButton.setToolTipText("新语言资源");
     menuButton.setIcon(getIcon("lrs"));
     toolbar.add(menuButton);
 
     LiveMenu tbNewPRMenu = new LiveMenu(LiveMenu.PR);
     menuButton = new JMenuButton(tbNewPRMenu);
-    menuButton.setToolTipText("New Processing Resource");
+    menuButton.setToolTipText("新加工资源");
     menuButton.setIcon(getIcon("prs"));
     toolbar.add(menuButton);
 
     LiveMenu tbNewAppMenu = new LiveMenu(LiveMenu.APP);
     menuButton = new JMenuButton(tbNewAppMenu);
-    menuButton.setToolTipText("New Application");
+    menuButton.setToolTipText("新应用");
     menuButton.setIcon(getIcon("applications"));
     toolbar.add(menuButton);
     toolbar.addSeparator();
@@ -1285,7 +1287,7 @@ public class MainFrame extends JFrame implements ProgressListener,
     tbDsMenu.add(new NewDSAction());
     tbDsMenu.add(new OpenDSAction());
     menuButton = new JMenuButton(tbDsMenu);
-    menuButton.setToolTipText("Datastores");
+    menuButton.setToolTipText("资料储存库");
     menuButton.setIcon(getIcon("datastores"));
     toolbar.add(menuButton);
 
@@ -1362,7 +1364,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           else if(value == applicationsRoot) {
             appsPopup = new XJPopupMenu();
             LiveMenu appsMenu = new LiveMenu(LiveMenu.APP);
-            appsMenu.setText("Create New Application");
+            appsMenu.setText("创建新的应用");
             appsMenu.setIcon(MainFrame.getIcon("applications"));
             appsPopup.add(appsMenu);
             appsPopup.add(new ReadyMadeMenu());            
@@ -2495,10 +2497,10 @@ public class MainFrame extends JFrame implements ProgressListener,
       AnnotationDiffGUI frame;
       if (documentName != null) {
         // use the document displayed in the view to compute the differences
-        frame = new AnnotationDiffGUI("Annotation Diff Tool",
+        frame = new AnnotationDiffGUI("注释差异工具",
           documentName, documentName, null, null, null, null);
       } else {
-        frame = new AnnotationDiffGUI("Annotation Diff Tool");
+        frame = new AnnotationDiffGUI("注释差异工具");
       }
       frame.pack();
       frame.setLocationRelativeTo(MainFrame.this);
@@ -3014,16 +3016,15 @@ public class MainFrame extends JFrame implements ProgressListener,
   class NewBootStrapAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public NewBootStrapAction() {
-      super("Bootstrap Wizard", getIcon("application"));
-      putValue(SHORT_DESCRIPTION, "Create a generic resource to be completed");
+      super("引导向导", getIcon("application"));
+      putValue(SHORT_DESCRIPTION, "创建要完成的通用资源");
     }// NewBootStrapAction
 
     @Override
     public void actionPerformed(ActionEvent e) {
       //BootStrapDialog bootStrapDialog = new BootStrapDialog(MainFrame.this);
       //bootStrapDialog.setVisible(true);
-      JLabel msg = new JLabel("<html><body>The bootstrap wizard has been replaced by a Maven archetype. "+
-          "To create a new plugin please run the following command from a console<br><br>");
+      JLabel msg = new JLabel("<html><body>引导向导已被Maven原型取代。要创建新插件，请从控制台运行以下命令<br><br>");
       
       JTextField txtCommand = new JTextField("mvn archetype:generate -DarchetypeGroupId=uk.ac.gate -DarchetypeArtifactId=gate-plugin-archetype -DarchetypeVersion="+Main.version);
       txtCommand.setEditable(false);
@@ -3032,16 +3033,16 @@ public class MainFrame extends JFrame implements ProgressListener,
       panel.add(msg, BorderLayout.NORTH);
       panel.add(txtCommand, BorderLayout.CENTER);
       
-      JOptionPane.showMessageDialog(MainFrame.getInstance(), panel, "Bootstrap Wizard",JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(MainFrame.getInstance(), panel, "引导向导",JOptionPane.INFORMATION_MESSAGE);
     }// actionPerformed();
   }// class NewBootStrapAction
 
   class ManagePluginsAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public ManagePluginsAction() {
-      super("Manage CREOLE Plugins...");
+      super("管理CREOLE插件...");
       putValue(SHORT_DESCRIPTION,
-        "Load, unload, add and remove CREOLE plugins");
+        "加载，卸载，添加和删除CREOLE插件");
       putValue(SMALL_ICON, new AvailableIcon(24,24));
     }
 
@@ -3086,7 +3087,7 @@ public class MainFrame extends JFrame implements ProgressListener,
     private static final long serialVersionUID = 1L;
     public StopAction() {
       super(" Stop! ");
-      putValue(SHORT_DESCRIPTION, "Stops the current action");
+      putValue(SHORT_DESCRIPTION, "停止当前动作");
     }
 
     @Override
@@ -3114,7 +3115,7 @@ public class MainFrame extends JFrame implements ProgressListener,
       dsLocation.setEditable(false);
       
       final JTextField indexLocation = new JTextField("", 20);
-      indexLocation.setToolTipText("directory to store the the lucene index");
+      indexLocation.setToolTipText("存储lucene索引的目录");
 
       JTextField btat = new JTextField("Token", 20);
       btat.setToolTipText("Examples: Token, AnnotationSetName.Token, "
@@ -3211,7 +3212,7 @@ public class MainFrame extends JFrame implements ProgressListener,
 
       JComboBox<String> ftie = new JComboBox<String>(new String[]{"include", "exclude"});
       ftie.setSelectedIndex(1);
-      fte.setToolTipText("Leave blank for inclusion of all features");
+      fte.setToolTipText("留空以包含所有功能");
 
       JButton indexBrowse = new JButton(getIcon("open-file"));
       indexBrowse.addActionListener(new ActionListener() {
@@ -3219,7 +3220,7 @@ public class MainFrame extends JFrame implements ProgressListener,
         public void actionPerformed(ActionEvent ae) {
           // first we need to ask for a new empty directory
           fileChooser.setDialogTitle(
-            "Please create a new empty directory for datastore");
+            "请为数据存储创建一个新的空目录");
           fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
           fileChooser.setResource("gate.DataStore.index");
           if(fileChooser.showOpenDialog(MainFrame.this)
@@ -3721,9 +3722,9 @@ public class MainFrame extends JFrame implements ProgressListener,
   class LoadResourceFromFileAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public LoadResourceFromFileAction() {
-      super("Restore Application from File...");
+      super("从文件还原应用程序...");
       putValue(SHORT_DESCRIPTION,
-        "Restores a previously saved application from a file");
+        "从文件还原先前保存的应用程序");
       putValue(SMALL_ICON, getIcon("open-application"));
     }
 
@@ -4839,18 +4840,18 @@ public class MainFrame extends JFrame implements ProgressListener,
           if (text.equals("GATE")) {
             textLabel.setText("Resources tree root ");
             iconLabel.setIcon(getIcon("GATE"));
-          } else if (text.equals("Applications")) {
-            textLabel.setText("Applications: run processes on data ");
+          } else if (text.equals("应用领域")) {
+            textLabel.setText("数据处理流程");
             iconLabel.setIcon(getIcon("applications"));
-          } else if (text.equals("Language Resources")) {
-            textLabel.setText("Language Resources: data used for annotating ");
+          } else if (text.equals("语言资源")) {
+            textLabel.setText("语言资源：用于注释的数据");
             iconLabel.setIcon(getIcon("lrs"));
-          } else if (text.equals("Processing Resources")) {
+          } else if (text.equals("处理资源")) {
             textLabel.setText(
-              "Processing Resources: processes that annotate data ");
+              "处理资源：注释数据的过程");
             iconLabel.setIcon(getIcon("prs"));
-          } else if (text.equals("Datastores")) {
-            textLabel.setText("Datastores: repositories for large data ");
+          } else if (text.equals("资料储存库")) {
+            textLabel.setText("数据存储：大数据存储库");
             iconLabel.setIcon(getIcon("datastores"));
           } else {
             textLabel.setText(text);
@@ -5126,23 +5127,23 @@ public class MainFrame extends JFrame implements ProgressListener,
       if(value == resourcesTreeRoot) {
         setIcon(new GATENameIcon(73,24));
         setText(null);
-        setToolTipText("Resources tree root ");
+        setToolTipText("根目录树");
       }
       else if(value == applicationsRoot) {
         setIcon(MainFrame.getIcon("Applications"));
-        setToolTipText("Run processes on data ");
+        setToolTipText("运行数据处理");
       }
       else if(value == languageResourcesRoot) {
         setIcon(MainFrame.getIcon("lrs"));
-        setToolTipText("Data used for annotating ");
+        setToolTipText("用于注释的数据");
       }
       else if(value == processingResourcesRoot) {
         setIcon(MainFrame.getIcon("prs"));
-        setToolTipText("Processes that annotate data ");
+        setToolTipText("注释数据的过程");
       }
       else if(value == datastoresRoot) {
-        setIcon(MainFrame.getIcon("Datastores"));
-        setToolTipText("Repositories for large data ");
+        setIcon(MainFrame.getIcon("datastores"));
+        setToolTipText("大数据存储库");
       }
       else {
         // not one of the default root nodes
@@ -5381,7 +5382,7 @@ public class MainFrame extends JFrame implements ProgressListener,
     private XJMenuItem openNLP;
 
     public ReadyMadeMenu() {
-      super("Ready Made Applications");
+      super("准备制作现有的应用");
       setIcon(new ReadyMadeIcon(24, 24));
 
         annie = new XJMenuItem(

@@ -40,7 +40,7 @@ import java.util.Iterator;
   * getDocumentFormat methods can then be used to get the appropriate
   * format class for a particular document.
   */
-@CreoleResource(name = "GATE EMAIL Document Format", isPrivate = true,
+@CreoleResource(name = "GATE EMAIL 文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class EmailDocumentFormat extends TextualDocumentFormat
 {

@@ -170,8 +170,8 @@ import java.util.Vector;
  * 
  * </PRE>
  */
-@CreoleResource(name = "GATE Document", interfaceName = "gate.Document",
-    comment = "GATE transient document.", icon = "document",
+@CreoleResource(name = "GATE 文件", interfaceName = "gate.Document",
+    comment = "GATE 临时文件。", icon = "document",
     helpURL = "http://gate.ac.uk/userguide/sec:developer:documents")
 public class DocumentImpl extends AbstractLanguageResource implements
                                                           TextualDocument,

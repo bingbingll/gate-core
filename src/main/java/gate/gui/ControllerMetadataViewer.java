@@ -60,7 +60,7 @@ import gate.creole.metadata.GuiType;
  * 
  * @author Mark A. Greenwood
  */
-@CreoleResource(name = "About...", guiType = GuiType.LARGE, resourceDisplayed = "gate.Controller")
+@CreoleResource(name = "关于...", guiType = GuiType.LARGE, resourceDisplayed = "gate.Controller")
 public class ControllerMetadataViewer extends AbstractVisualResource {
 
   private static final long serialVersionUID = -1161421403987238291L;

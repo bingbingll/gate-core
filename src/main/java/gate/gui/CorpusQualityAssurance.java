@@ -122,7 +122,7 @@ import gate.util.Strings;
  * with different measures notably precision, recall and F1-score.
  */
 @SuppressWarnings({"serial","unchecked","rawtypes","deprecation"})
-@CreoleResource(name = "Corpus Quality Assurance", guiType = GuiType.LARGE,
+@CreoleResource(name = "语料库质量保证", guiType = GuiType.LARGE,
     resourceDisplayed = "gate.Corpus", mainViewer = false,
     helpURL = "http://gate.ac.uk/userguide/sec:eval:corpusqualityassurance")
 public class CorpusQualityAssurance extends AbstractVisualResource

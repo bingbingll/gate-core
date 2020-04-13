@@ -57,7 +57,7 @@ import org.xml.sax.SAXException;
  * constructed. Static getDocumentFormat methods can then be used to get
  * the appropriate format class for a particular document.
  */
-@CreoleResource(name = "GATE XML Document Format", isPrivate = true,
+@CreoleResource(name = "GATE XML 文件格式", isPrivate = true,
     autoinstances = {@AutoInstance(hidden = true)})
 public class XmlDocumentFormat extends TextualDocumentFormat {
 
