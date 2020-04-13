@@ -2469,9 +2469,9 @@ public class MainFrame extends JFrame implements ProgressListener,
   class NewAnnotDiffAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public NewAnnotDiffAction() {
-      super("Annotation Diff", getIcon("annotation-diff"));
+      super("注释差异", getIcon("annotation-diff"));
       putValue(SHORT_DESCRIPTION,
-        "Compare annotations and features in one or two documents");
+        "比较一两个文档中的注释和功能");
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -3594,7 +3594,7 @@ public class MainFrame extends JFrame implements ProgressListener,
     DataStore ds = null;
 
     // get the URL (a file in this case)
-    fileChooser.setDialogTitle("Select the datastore directory");
+    fileChooser.setDialogTitle("选择数据存储目录");
     fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     fileChooser.setResource("gate.DataStore.data");
     if(fileChooser.showOpenDialog(MainFrame.this)
@@ -3623,8 +3623,8 @@ public class MainFrame extends JFrame implements ProgressListener,
   class NewDSAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public NewDSAction() {
-      super("Create Datastore");
-      putValue(SHORT_DESCRIPTION, "Create a new datastore");
+      super("创建数据存储");
+      putValue(SHORT_DESCRIPTION, "创建一个新的数据存储");
       putValue(SMALL_ICON, getIcon("datastore"));
     }
 
@@ -3637,7 +3637,7 @@ public class MainFrame extends JFrame implements ProgressListener,
       }
 
       if(!dsTypeByName.isEmpty()) {
-        JLabel label = new JLabel("Select a type of Datastore:");
+        JLabel label = new JLabel("选择一种数据存储：");
         final JList<String> list = new JList<String>(dsTypeByName.keySet().toArray(new String[dsTypeByName.keySet().size()]));
         String initialSelection = Gate.getUserConfig().getString(
           MainFrame.class.getName()+".datastoretype");
@@ -3653,7 +3653,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           JOptionPane.QUESTION_MESSAGE, JOptionPane.OK_CANCEL_OPTION,
           getIcon("datastore"), new String[]{"OK", "Cancel", "Help"}, "OK");
         final JDialog dialog = new JDialog(
-          MainFrame.this, "Create a datastore", true);
+          MainFrame.this, "创建一个数据存储", true);
         dialog.setContentPane(optionPane);
         list.addMouseListener(new MouseAdapter() {
           @Override
@@ -3708,8 +3708,8 @@ public class MainFrame extends JFrame implements ProgressListener,
       else {
         // no ds types
         JOptionPane.showMessageDialog(MainFrame.this,
-          "Could not find any registered types " + "of datastores...\n"
-            + "Check your GATE installation!", "GATE",
+          "找不到任何注册的类型 " + "数据存储...\n"
+            + "检查您的GATE安装！", "GATE",
           JOptionPane.ERROR_MESSAGE);
 
       }
@@ -3730,7 +3730,7 @@ public class MainFrame extends JFrame implements ProgressListener,
       resourceReferenceChooser.setSuffixes("GATE Application files (.gapp, .xgapp)", Arrays.asList(".gapp", ".xgapp"));
       resourceReferenceChooser.setResource("lastapplication");
 
-      String gappUri = resourceReferenceChooser.showDialog(MainFrame.this, "Select application to load");
+      String gappUri = resourceReferenceChooser.showDialog(MainFrame.this, "选择要加载的应用程序");
       if(gappUri != null) {
       //if (fileChooser.showOpenDialog(MainFrame.this)
       //  == JFileChooser.APPROVE_OPTION) {
@@ -4046,8 +4046,8 @@ public class MainFrame extends JFrame implements ProgressListener,
   class ExitGateAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public ExitGateAction() {
-      super("Exit GATE");
-      putValue(SHORT_DESCRIPTION, "Closes the application");
+      super("关闭 GATE");
+      putValue(SHORT_DESCRIPTION, "关闭应用程序");
       putValue(SMALL_ICON, getIcon("Exit"));
       putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("alt F4"));
     }
@@ -4203,7 +4203,7 @@ public class MainFrame extends JFrame implements ProgressListener,
     private static final long serialVersionUID = 1L;
     public OpenDSAction() {
       super("Open Datastore");
-      putValue(SHORT_DESCRIPTION, "Open a datastore");
+      putValue(SHORT_DESCRIPTION, "打开数据存储");
       putValue(SMALL_ICON, getIcon("datastore"));
     }
 
@@ -4388,8 +4388,8 @@ public class MainFrame extends JFrame implements ProgressListener,
           }
         } else if (type == PR) {
           // empty PR menu -> add an action to load ANNIE plugin
-          add(new AbstractAction("Add ANNIE Resources to this Menu") {
-            { putValue(SHORT_DESCRIPTION, "Load the ANNIE plugin."); }
+          add(new AbstractAction("将ANNIE资源添加到此菜单") {
+            { putValue(SHORT_DESCRIPTION, "加载ANNIE插件。"); }
             @Override
             public void actionPerformed(ActionEvent e) {
               try {
@@ -4452,7 +4452,7 @@ public class MainFrame extends JFrame implements ProgressListener,
    */
   class RecentAppsMenu extends XJMenu {
     public RecentAppsMenu() {
-      super("Reload Recent Application");
+      super("重新加载最近的应用程序");
       setIcon(MainFrame.getIcon("open-application"));
       init();
       addMenuItems();

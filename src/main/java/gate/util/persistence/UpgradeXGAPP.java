@@ -748,7 +748,7 @@ public class UpgradeXGAPP {
     private static final long serialVersionUID = 5104380211427809600L;
 
     public UpgradeAction() {
-      super("Upgrade XGapp", new ApplicationIcon(24, 24));
+      super("升级XGapp", new ApplicationIcon(24, 24));
     }
 
     @Override
@@ -761,7 +761,7 @@ public class UpgradeXGAPP {
       fileChooser.resetChoosableFileFilters();
       fileChooser.addChoosableFileFilter(filter);
       fileChooser.setFileFilter(filter);
-      fileChooser.setDialogTitle("Select an XGapp to Upgrade");
+      fileChooser.setDialogTitle("选择要升级的XGapp");
       fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
       fileChooser.setResource("lastapplication");
 
@@ -772,7 +772,7 @@ public class UpgradeXGAPP {
       try {
         File originalXGapp = fileChooser.getSelectedFile().getCanonicalFile();
 
-        MainFrame.lockGUI("Gathering details of plugins");
+        MainFrame.lockGUI("收集插件的详细信息");//Gathering details of plugins
         new Thread(() -> {
           final List<UpgradePath> upgrades;
           final Document doc;
