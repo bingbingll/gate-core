@@ -2515,9 +2515,8 @@ public class MainFrame extends JFrame implements ProgressListener,
   class NewCorpusEvalAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public NewCorpusEvalAction() {
-      super("Default Mode");
-      putValue(SHORT_DESCRIPTION, "Compares stored processed set with current" +
-        " processed set and human-annotated set");
+      super("默认模式");
+      putValue(SHORT_DESCRIPTION, "将存储的处理集与当前处理集和人类注释集进行比较");
       putValue(SMALL_ICON, getIcon("corpus-benchmark"));
     }// newCorpusEvalAction
 
@@ -2526,8 +2525,7 @@ public class MainFrame extends JFrame implements ProgressListener,
       Runnable runnable = new Runnable() {
         @Override
         public void run() {
-          fileChooser.setDialogTitle("Please select a directory which contains "
-            + "the documents to be evaluated");
+          fileChooser.setDialogTitle("请选择一个目录，其中包含要评估的文档");
           fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
           fileChooser.setFileFilter(fileChooser.getAcceptAllFileFilter());
           fileChooser.setResource(CorpusBenchmarkTool.class.getName());
@@ -2536,7 +2534,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           if(state == JFileChooser.CANCEL_OPTION || startDir == null) return;
 
           fileChooser.setDialogTitle(
-            "Please select the application that you want to run");
+            "请选择您要运行的应用程序");
           fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
           fileChooser.setResource(
             CorpusBenchmarkTool.class.getName() + ".application");
@@ -2550,7 +2548,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           theTool.setApplicationFile(testApp);
           theTool.setVerboseMode(verboseModeItem.isSelected());
 
-          Out.prln("Please wait while GATE tools are initialised.");
+          Out.prln("GATE工具初始化时，请等待。");
           // initialise the tool
           theTool.init();
           // and execute it
@@ -2581,9 +2579,9 @@ public class MainFrame extends JFrame implements ProgressListener,
   class StoredMarkedCorpusEvalAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public StoredMarkedCorpusEvalAction() {
-      super("Human Marked Against Stored Processing Results");
+      super("有人标记了存储的处理结果");
       putValue(SHORT_DESCRIPTION,
-        "Compares stored processed set with human-annotated set");
+        "将存储的处理集与人工注释集进行比较");
       putValue(SMALL_ICON, getIcon("corpus-benchmark"));
     }// newCorpusEvalAction
 
@@ -2610,7 +2608,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           // MainFrame.this.datastoreModeCorpusEvalToolAction.isDatastoreMode());
 
           Out
-            .prln("Evaluating human-marked documents against pre-stored results.");
+            .prln("根据预先存储的结果评估带有人类标记的文档。");
           // initialise the tool
           theTool.init();
           // and execute it
@@ -2641,9 +2639,9 @@ public class MainFrame extends JFrame implements ProgressListener,
   class CleanMarkedCorpusEvalAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public CleanMarkedCorpusEvalAction() {
-      super("Human Marked Against Current Processing Results");
+      super("针对当前处理结果的人员标记");
       putValue(SHORT_DESCRIPTION,
-        "Compares current processed set with human-annotated set");
+        "将当前处理过的集合与人工注释的集合进行比较");
       putValue(SMALL_ICON, getIcon("corpus-benchmark"));
     }// newCorpusEvalAction
 
@@ -2677,7 +2675,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           theTool.setMarkedClean(true);
           theTool.setVerboseMode(verboseModeItem.isSelected());
 
-          Out.prln("Evaluating human-marked documents against current processing results.");
+          Out.prln("根据当前的处理结果评估带有人工标记的文档");
           // initialise the tool
           theTool.init();
           // and execute it
@@ -2708,8 +2706,8 @@ public class MainFrame extends JFrame implements ProgressListener,
   class GenerateStoredCorpusEvalAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public GenerateStoredCorpusEvalAction() {
-      super("Store Corpus for Future Evaluation");
-      putValue(SHORT_DESCRIPTION, "Store corpus for future evaluation");
+      super("存储语料库以供将来评估");
+      putValue(SHORT_DESCRIPTION, "存储语料库以备将来评估");
       putValue(SMALL_ICON, getIcon("corpus-benchmark"));
     }// newCorpusEvalAction
 
@@ -2718,8 +2716,7 @@ public class MainFrame extends JFrame implements ProgressListener,
       Runnable runnable = new Runnable() {
         @Override
         public void run() {
-          fileChooser.setDialogTitle("Please select a directory which contains "
-            + "the documents to be evaluated");
+          fileChooser.setDialogTitle("请选择一个目录，其中包含要评估的文档");
           fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
           fileChooser.setFileFilter(fileChooser.getAcceptAllFileFilter());
           fileChooser.setResource(CorpusBenchmarkTool.class.getName());
@@ -2728,7 +2725,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           if(state == JFileChooser.CANCEL_OPTION || startDir == null) return;
 
           fileChooser.setDialogTitle(
-            "Please select the application that you want to run");
+            "请选择您要运行的应用程序");
           fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
           fileChooser.setResource(
             CorpusBenchmarkTool.class.getName() + ".application");
@@ -2742,7 +2739,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           theTool.setApplicationFile(testApp);
           theTool.setGenerateMode(true);
 
-          Out.prln("Processing and storing documents for future evaluation.");
+          Out.prln("处理和存储文档以供将来评估。");
           // initialise the tool
           theTool.init();
           // and execute it
@@ -2766,7 +2763,7 @@ public class MainFrame extends JFrame implements ProgressListener,
   class VerboseModeCorpusEvalToolAction extends AbstractAction {
     private static final long serialVersionUID = 1L;
     public VerboseModeCorpusEvalToolAction() {
-      super("Verbose Mode");
+      super("详细模式");
     }// VerboseModeCorpusEvalToolAction
 
     public boolean isVerboseMode() {
@@ -2815,7 +2812,7 @@ public class MainFrame extends JFrame implements ProgressListener,
           catch(Exception error) {
             unlockGUI();
             String message =
-              "There was an error when loading the ANNIE application.";
+              "加载ANNIE应用程序时出错。";
             log.error(message, error);
             return;
           }
