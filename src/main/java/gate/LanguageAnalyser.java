@@ -24,7 +24,7 @@ import gate.creole.metadata.RunTime;
 /**
  * A special type of {@link ProcessingResource} that processes {@link Document}s
  */
-@CreoleResource(name = "Language analyser",
+@CreoleResource(name = "语言分析",
         comment = "A processing resource that takes document and corpus parameters")
 public interface LanguageAnalyser extends ProcessingResource {
 
@@ -39,7 +39,7 @@ public interface LanguageAnalyser extends ProcessingResource {
   /** Set the corpus property for this analyser. */
   @Optional
   @RunTime
-  @CreoleParameter(comment = "包含要处理的文档的语料库")
+  @CreoleParameter(comment = "The corpus containing the document to process")
   public void setCorpus(Corpus corpus);
 
   /** Get the corpus property for this analyser. */
